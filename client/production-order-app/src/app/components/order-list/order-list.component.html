@@ -1,0 +1,47 @@
+<div *ngIf="orderListEmpty()" class="center-content" style="min-height: 300px">
+    <div style="margin-top: 100px">No production orders available</div>
+</div>
+
+<div style="padding: 20px">
+    <table mat-table [dataSource]="dataSource" matSort style="width: 100%; height: 100%">
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let element" style="width: 20%"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Type Column -->
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+            <td mat-cell *matCellDef="let element" style="width: 40%"> {{element.type | type}} </td>
+        </ng-container>
+
+        <!-- State Column -->
+        <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
+            <td mat-cell *matCellDef="let element" style="width: 40%">
+                <i *ngIf="element.state === 'PLANNED'" class="fal fa-layer-plus fa-2x" style="color: green"
+                    matTooltip="Planned"></i>
+                <i *ngIf="element.state === 'PROCESSING'" class="fas fa-spinner fa-spin fa-2x" style="color: green"
+                    matTooltip="Processing"></i>
+                <i *ngIf="element.state === 'FINISHED'" class="fal fa-check-circle fa-2x" style="color: green"
+                    matTooltip="Finished"></i>
+            </td>
+        </ng-container>
+
+        <!-- Type Column -->
+        <ng-container matColumnDef="trash">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+            <td mat-cell *matCellDef="let element">
+                <i class="fal fa-trash-alt fa-1x pointer" (click)="deleteOrder(element)" matTooltip="Delete"></i>
+                i<fa-icon [icon]="faTrashAlt" style="color: lightgrey; font-size: 25px" class="pointer"></fa-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

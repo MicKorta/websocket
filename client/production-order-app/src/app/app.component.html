@@ -1,0 +1,29 @@
+<div class="outer-main center-content">
+  <div class="inner-main" style="padding-right: 20px">
+    <div class="center-content">
+      <img id="logo" style="width: 100%" src="../assets/logo.jpg" class="rounded z-depth">
+    </div>
+    <div class="flex-row">
+      <div style="margin-top: 18px; margin-right: 15px"><fa-icon [icon]="faBars" style="color: lightgrey; font-size: 25px"></fa-icon></div>
+      <div style="width: 100%; margin-top: 15px; min-height: 30px" class="center-content box">&nbsp;</div>
+      <div style="margin-top: 18px; margin-left: 15px"><fa-icon [icon]="faBars" style="color: lightgrey; font-size: 25px"></fa-icon></div>
+    </div>
+
+    <div class="rounded status-box" style="margin-top: 20px">
+      <app-status></app-status>
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <div class="outer-div">
+      <div class="rounded input-box">
+        <app-order-input></app-order-input>
+      </div>
+      <div class="rounded list-box">
+        <app-order-list></app-order-list>
+      </div>
+    </div>
+
+  </div>
+
+</div>

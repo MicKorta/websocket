@@ -1,0 +1,18 @@
+<div class="flex-column center-content" style="min-height: 300px">
+    <div *ngIf="viewStatus === ViewStatus.PENDING" style="width: 100%" class="flex-column center-content">
+      <div style="width: 100%" class="center-content">Hit button to place order:</div>
+        <div class="flex-row center-content" style="width: 100%; margin-top: 50px">
+          <button id="switch" mat-button title="Produktionsauftrag: Schalter" style="height: 40px; width: 100px; margin-right: 20px" class="z-depth" type="button" (click)="createSwitch()">Switch</button>
+          <button id="lamp" mat-button title="Produktionsauftrag: Lampe" style="height: 40px; width: 100px; margin-right: 20px" class="z-depth" type="button" (click)="createLamp()">Lamp</button>
+          <button id="case" mat-button title="Produktionsauftrag: Geh�use" style="height: 40px; width: 100px" class="z-depth" type="button" (click)="createCase()">Case</button>
+        </div>
+    </div>
+    <div *ngIf="viewStatus === ViewStatus.PROGRESS" class="center-content flex-column" style="width: 100%">
+      <div class="center-content" style="width: 100%">
+        <fa-icon [icon]="faSpinner" style="color: lightgrey; font-size: 25px"></fa-icon>
+      </div>
+      <div class="center-content" style="width: 100%; margin-top: 50px">
+        Your order is going to be placed
+      </div>
+    </div>
+</div>

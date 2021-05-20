@@ -1,0 +1,8 @@
+<div id="status">
+  <div id="indicator" class="{{connectionStatus$|async}}"></div>
+  <span id="status-label">{{connectionStatus$|async}}</span>
+
+  <button id="activate" mat-button title="Activate" style="height: 40px; width: 150px; margin-right: 20px" class="z-depth" type="button" (click)="rxStompService.activate()">Activate</button>
+  <button id="activate" mat-button title="Deactivate" style="height: 40px; width: 150px; margin-right: 20px" class="z-depth" type="button" (click)="rxStompService.deactivate()">Deactivate</button>
+  <button id="activate" mat-button title="Simulate Error" style="height: 40px; width: 150px; margin-right: 20px" class="z-depth" type="button" (click)="rxStompService.stompClient.forceDisconnect()">Simulate Error</button>
+</div>
